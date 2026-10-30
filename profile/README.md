@@ -12,6 +12,7 @@ Ferber is more than its kernel. The project encompasses several components as de
 
 - **Ferber** — The capability-based microkernel, responsible for isolation, scheduling, memory management, IPC, and resource authority.
 - **Ferrum** — The userspace environment, including initialization, system services, and eventually an interactive shell.
+- **fer** — The planned system CLI for managing packages, services, drivers, capabilities, memory, IPC, and jobs.
 - **Libraries and SDKs** — Interfaces for building native applications against Ferber's system ABI.
 - **Compatibility and ports** — Work toward supporting existing software, including a future musl libc port.
 - **Developer tooling** — Build tools, debugging utilities, testing infrastructure, and supporting documentation.
