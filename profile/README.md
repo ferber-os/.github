@@ -1,28 +1,51 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ferber-os/ferber/main/docs/assets/ferber.png" width="180" alt="Ferber logo">
-</p>
-
 # Ferber
 
-Capability-based systems in Rust. Programs receive authority explicitly. Handles,
-mappings and the memory behind them have separate lifetimes. The kernel has to
-account for all three.
+**Zero ambient authority. Programs earn every resource they touch.**
 
-[Ferber](https://github.com/ferber-os/ferber) is a microkernel targeting RISC-V64
-and x86-64. It runs independently compiled userspace programs, provides
-capability-aware IPC and manages sparse physical memory. Ferrum is its userspace
-implementation, starting with a resident `init`. Service launch and an interactive
-shell are still ahead.
+Ferber is an open-source operating system project built around explicit resource authority, strong isolation, and a capability-based microkernel written in Rust.
 
-Both architectures are tested in QEMU. Physical x86-64 validation runs on a
-32 GiB workstation. Physical RISC-V testing would be useful; no such hardware
-is currently available here.
+The project targets RISC-V64 and x86-64, with a focus on keeping privileged mechanisms small and moving operating-system functionality into userspace.
 
-The [roadmap](https://github.com/ferber-os/ferber/blob/main/ROADMAP.md) tracks what
-works and what remains. For a first contribution, start with the
-[contribution guide](https://github.com/ferber-os/ferber/blob/main/CONTRIBUTING.md).
-Documentation, testing and tooling are useful work. Your first patch does not
-need to touch the kernel.
+## The ecosystem
 
-[Technical writeups](https://notvc.to/blog) cover the implementation and its
-failure cases.
+Ferber is more than its kernel. The project encompasses several components as development progresses:
+
+- **Ferber** — The capability-based microkernel, responsible for isolation, scheduling, memory management, IPC, and resource authority.
+- **Ferrum** — The userspace environment, including initialization, system services, and eventually an interactive shell.
+- **Libraries and SDKs** — Interfaces for building native applications against Ferber's system ABI.
+- **Compatibility and ports** — Work toward supporting existing software, including a future musl libc port.
+- **Developer tooling** — Build tools, debugging utilities, testing infrastructure, and supporting documentation.
+
+These components are at different stages of development. Some are implemented, others are planned.
+
+## Repositories
+
+### [ferber](https://github.com/ferber-os/ferber)
+
+The main development repository.
+
+Contains the microkernel, boot infrastructure, shared ABI definitions, Ferrum components, build tooling, and cross-architecture verification.
+
+Additional repositories will be created as components develop independent maintenance and release requirements.
+
+## Development status
+
+Ferber is experimental and under active development. It is not currently a production operating system.
+
+Development priorities include userspace process creation, capability delegation, resource accounting, and the mechanisms needed for independently launched services.
+
+The project is tested through automated host and QEMU verification on both target architectures, with additional physical x86-64 hardware testing.
+
+## Contributing
+
+Contributions, bug reports, technical reviews, and discussions are welcome.
+
+See the main repository's [contribution guidelines](https://github.com/ferber-os/ferber/blob/main/CONTRIBUTING.md) for development and submission information.
+
+## Links
+
+**Project source:** https://github.com/ferber-os/ferber
+
+**Technical articles:** https://notvc.to
+
+**Maintainer:** [notvcto](https://github.com/notvcto)
